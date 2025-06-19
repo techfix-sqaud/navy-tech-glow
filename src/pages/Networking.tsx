@@ -1,5 +1,4 @@
-
-import { Network, Server, Wifi, Shield, Monitor, Router } from 'lucide-react';
+import { Network, Server, Wifi, Shield, Monitor, Router, Check } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -36,6 +35,42 @@ const Networking = () => {
       icon: Router,
       title: 'Equipment Installation',
       description: 'Professional installation of routers, switches, and networking hardware'
+    }
+  ];
+
+  const pricingPlans = [
+    {
+      name: 'Small Business',
+      price: '$1,999',
+      features: [
+        'Basic network setup',
+        'WiFi installation',
+        'Basic security configuration',
+        '3 months support'
+      ]
+    },
+    {
+      name: 'Enterprise',
+      price: '$7,999',
+      features: [
+        'Advanced network infrastructure',
+        'Enterprise WiFi solutions',
+        'Server setup & configuration',
+        'Network security implementation',
+        '12 months support',
+        '24/7 monitoring'
+      ]
+    },
+    {
+      name: 'Custom Solution',
+      price: 'Custom',
+      features: [
+        'Tailored network architecture',
+        'Advanced security measures',
+        'Redundancy & failover systems',
+        'Ongoing maintenance',
+        'Dedicated support team'
+      ]
     }
   ];
 
@@ -123,6 +158,46 @@ const Networking = () => {
                 Free Assessment
               </Button>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing Section */}
+      <section className="py-20 bg-gray-50 dark:bg-gray-900">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+              Networking Packages
+            </h2>
+            <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+              Professional networking solutions for every business size
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {pricingPlans.map((plan, index) => (
+              <Card key={index} className="hover:shadow-xl transition-shadow duration-300">
+                <CardHeader className="text-center">
+                  <CardTitle className="text-xl">{plan.name}</CardTitle>
+                  <div className="mt-4">
+                    <span className="text-3xl font-bold text-primary-600">{plan.price}</span>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-3 mb-6">
+                    {plan.features.map((feature, featureIndex) => (
+                      <li key={featureIndex} className="flex items-center">
+                        <Check className="h-4 w-4 text-primary-600 mr-3 flex-shrink-0" />
+                        <span className="text-gray-700 dark:text-gray-300 text-sm">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <Button className="w-full bg-primary-600 hover:bg-primary-700">
+                    {plan.name === 'Custom Solution' ? 'Contact Us' : 'Get Quote'}
+                  </Button>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>

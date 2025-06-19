@@ -10,6 +10,9 @@ import SmartHome from "./pages/SmartHome";
 import Networking from "./pages/Networking";
 import WebMobileDev from "./pages/WebMobileDev";
 import Cybersecurity from "./pages/Cybersecurity";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import Pricing from "./pages/Pricing";
 import NotFound from "./pages/NotFound";
 
 const App = () => {
@@ -27,6 +30,9 @@ const App = () => {
             <Route path="/networking" element={<Networking />} />
             <Route path="/web-mobile-dev" element={<WebMobileDev />} />
             <Route path="/cybersecurity" element={<Cybersecurity />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/pricing" element={<Pricing />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

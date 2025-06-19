@@ -113,6 +113,39 @@ const Header = () => {
                 ))}
               </DropdownMenuContent>
             </DropdownMenu>
+
+            <Link
+              to="/about"
+              className={`transition-colors duration-200 font-medium ${
+                isActive('/about')
+                  ? 'text-primary-600 dark:text-primary-400'
+                  : 'text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400'
+              }`}
+            >
+              About
+            </Link>
+
+            <Link
+              to="/pricing"
+              className={`transition-colors duration-200 font-medium ${
+                isActive('/pricing')
+                  ? 'text-primary-600 dark:text-primary-400'
+                  : 'text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400'
+              }`}
+            >
+              Pricing
+            </Link>
+
+            <Link
+              to="/contact"
+              className={`transition-colors duration-200 font-medium ${
+                isActive('/contact')
+                  ? 'text-primary-600 dark:text-primary-400'
+                  : 'text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400'
+              }`}
+            >
+              Contact
+            </Link>
           </nav>
 
           {/* Desktop Actions */}
@@ -185,6 +218,42 @@ const Header = () => {
                   </Link>
                 ))}
               </div>
+
+              <Link
+                to="/about"
+                className={`block px-3 py-2 transition-colors duration-200 ${
+                  isActive('/about')
+                    ? 'text-primary-600 dark:text-primary-400'
+                    : 'text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400'
+                }`}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                About
+              </Link>
+
+              <Link
+                to="/pricing"
+                className={`block px-3 py-2 transition-colors duration-200 ${
+                  isActive('/pricing')
+                    ? 'text-primary-600 dark:text-primary-400'
+                    : 'text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400'
+                }`}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Pricing
+              </Link>
+
+              <Link
+                to="/contact"
+                className={`block px-3 py-2 transition-colors duration-200 ${
+                  isActive('/contact')
+                    ? 'text-primary-600 dark:text-primary-400'
+                    : 'text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400'
+                }`}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Contact
+              </Link>
               
               <div className="px-3 py-2">
                 <Button className="w-full bg-primary-600 hover:bg-primary-700 text-white">
