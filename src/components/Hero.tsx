@@ -1,13 +1,16 @@
-import { ArrowRight, Play } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Link } from 'react-router-dom';
+import { ArrowRight, Play } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section
+      id="home"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+    >
       {/* Background Gradient */}
       <div className="absolute inset-0 hero-gradient"></div>
-      
+
       {/* Animated Background Elements */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-white rounded-full mix-blend-overlay filter blur-xl animate-pulse"></div>
@@ -18,7 +21,9 @@ const Hero = () => {
         <div className="max-w-4xl mx-auto animate-fade-in">
           {/* Badge */}
           <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 text-white mb-8">
-            <span className="text-sm font-medium">🚀 Transforming Ideas into Digital Reality</span>
+            <span className="text-sm font-medium">
+              🚀 Transforming Ideas into Digital Reality
+            </span>
           </div>
 
           {/* Main Headline */}
@@ -31,24 +36,25 @@ const Hero = () => {
 
           {/* Subtitle */}
           <p className="text-xl sm:text-2xl text-blue-100 mb-10 max-w-3xl mx-auto leading-relaxed">
-            From smart home automation to cutting-edge web applications, we deliver 
-            innovative technology solutions that power your digital transformation.
+            From smart home automation to cutting-edge web applications, we
+            deliver innovative technology solutions that power your digital
+            transformation.
           </p>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-            <Link to="/start-project">
-              <Button 
-                size="lg" 
+            <Link to="/StartProject">
+              <Button
+                size="lg"
                 className="bg-white text-primary-900 hover:bg-gray-100 px-8 py-4 text-lg font-semibold group"
               >
                 Start Your Project
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
-            <Button 
-              variant="outline" 
-              size="lg" 
+            <Button
+              variant="outline"
+              size="lg"
               className="border-white text-white hover:bg-white/10 px-8 py-4 text-lg font-semibold group"
             >
               <Play className="mr-2 h-5 w-5" />
@@ -59,18 +65,20 @@ const Hero = () => {
           {/* Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-2xl mx-auto">
             {[
-              { number: '500+', label: 'Projects Completed' },
-              { number: '50+', label: 'Happy Clients' },
-              { number: '24/7', label: 'Support Available' },
-              { number: '99%', label: 'Client Satisfaction' },
+              { number: "500+", label: "Projects Completed" },
+              { number: "50+", label: "Happy Clients" },
+              { number: "24/7", label: "Support Available" },
+              { number: "99%", label: "Client Satisfaction" },
             ].map((stat, index) => (
-              <div key={index} className="text-center animate-slide-up" style={{ animationDelay: `${index * 200}ms` }}>
+              <div
+                key={index}
+                className="text-center animate-slide-up"
+                style={{ animationDelay: `${index * 200}ms` }}
+              >
                 <div className="text-2xl sm:text-3xl font-bold text-white mb-1">
                   {stat.number}
                 </div>
-                <div className="text-blue-200 text-sm">
-                  {stat.label}
-                </div>
+                <div className="text-blue-200 text-sm">{stat.label}</div>
               </div>
             ))}
           </div>

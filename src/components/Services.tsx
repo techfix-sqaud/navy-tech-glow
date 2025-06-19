@@ -1,45 +1,88 @@
-
-import { Home, Network, Code, Smartphone, Cloud, Shield } from 'lucide-react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Home, Network, Code, Smartphone, Cloud, Shield } from "lucide-react";
+import { Link } from "react-router-dom";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Button } from "./ui/button";
 
 const Services = () => {
   const services = [
     {
       icon: Home,
-      title: 'Smart Home Solutions',
-      description: 'Complete home automation systems with IoT integration, voice control, and energy management.',
-      features: ['IoT Device Integration', 'Voice Control Systems', 'Energy Management', 'Security Automation']
+      title: "Smart Home Solutions",
+      description:
+        "Complete home automation systems with IoT integration, voice control, and energy management.",
+      features: [
+        "IoT Device Integration",
+        "Voice Control Systems",
+        "Energy Management",
+        "Security Automation",
+      ],
     },
     {
       icon: Network,
-      title: 'Networking Infrastructure',
-      description: 'Enterprise-grade networking solutions for seamless connectivity and optimal performance.',
-      features: ['Network Design', 'Wireless Solutions', 'Security Implementation', '24/7 Monitoring']
+      title: "Networking Infrastructure",
+      description:
+        "Enterprise-grade networking solutions for seamless connectivity and optimal performance.",
+      features: [
+        "Network Design",
+        "Wireless Solutions",
+        "Security Implementation",
+        "24/7 Monitoring",
+      ],
     },
     {
       icon: Code,
-      title: 'Web Development',
-      description: 'Custom web applications built with modern technologies for exceptional user experiences.',
-      features: ['Responsive Design', 'E-commerce Solutions', 'CMS Development', 'API Integration']
+      title: "Web Development",
+      description:
+        "Custom web applications built with modern technologies for exceptional user experiences.",
+      features: [
+        "Responsive Design",
+        "E-commerce Solutions",
+        "CMS Development",
+        "API Integration",
+      ],
     },
     {
       icon: Smartphone,
-      title: 'Mobile App Development',
-      description: 'Native and cross-platform mobile applications that engage users and drive business growth.',
-      features: ['iOS & Android Apps', 'Cross-platform Solutions', 'UI/UX Design', 'App Store Optimization']
+      title: "Mobile App Development",
+      description:
+        "Native and cross-platform mobile applications that engage users and drive business growth.",
+      features: [
+        "iOS & Android Apps",
+        "Cross-platform Solutions",
+        "UI/UX Design",
+        "App Store Optimization",
+      ],
     },
     {
       icon: Cloud,
-      title: 'Cloud Solutions',
-      description: 'Scalable cloud infrastructure and migration services for enhanced performance and reliability.',
-      features: ['Cloud Migration', 'Infrastructure Setup', 'DevOps Implementation', 'Monitoring & Support']
+      title: "Cloud Solutions",
+      description:
+        "Scalable cloud infrastructure and migration services for enhanced performance and reliability.",
+      features: [
+        "Cloud Migration",
+        "Infrastructure Setup",
+        "DevOps Implementation",
+        "Monitoring & Support",
+      ],
     },
     {
       icon: Shield,
-      title: 'Cybersecurity',
-      description: 'Comprehensive security solutions to protect your digital assets and ensure compliance.',
-      features: ['Security Audits', 'Threat Detection', 'Compliance Solutions', 'Security Training']
-    }
+      title: "Cybersecurity",
+      description:
+        "Comprehensive security solutions to protect your digital assets and ensure compliance.",
+      features: [
+        "Security Audits",
+        "Threat Detection",
+        "Compliance Solutions",
+        "Security Training",
+      ],
+    },
   ];
 
   return (
@@ -51,7 +94,8 @@ const Services = () => {
             Our <span className="gradient-text">Services</span>
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-            We provide comprehensive technology solutions to help businesses thrive in the digital age.
+            We provide comprehensive technology solutions to help businesses
+            thrive in the digital age.
           </p>
         </div>
 
@@ -60,8 +104,8 @@ const Services = () => {
           {services.map((service, index) => {
             const IconComponent = service.icon;
             return (
-              <Card 
-                key={index} 
+              <Card
+                key={index}
                 className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 animate-scale-in border-0 shadow-lg"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
@@ -79,7 +123,10 @@ const Services = () => {
                 <CardContent>
                   <ul className="space-y-2">
                     {service.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center text-sm text-gray-700 dark:text-gray-300">
+                      <li
+                        key={featureIndex}
+                        className="flex items-center text-sm text-gray-700 dark:text-gray-300"
+                      >
                         <div className="w-2 h-2 bg-primary-500 rounded-full mr-3 flex-shrink-0"></div>
                         {feature}
                       </li>
@@ -98,11 +145,24 @@ const Services = () => {
               Ready to Transform Your Business?
             </h3>
             <p className="text-gray-600 dark:text-gray-400 mb-6 max-w-2xl mx-auto">
-              Let's discuss how our technology solutions can help you achieve your goals and stay ahead of the competition.
+              Let's discuss how our technology solutions can help you achieve
+              your goals and stay ahead of the competition.
             </p>
-            <button className="bg-primary-600 hover:bg-primary-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors duration-200">
-              Get Free Consultation
-            </button>
+            {/* <Link to="/GetConsultation">
+              <button className="bg-primary-600 hover:bg-primary-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors duration-200">
+                Get Free Consultation
+              </button>
+            </Link> */}
+            {/* <Link to="/GetConsultation">
+              <Button className="bg-primary-600 hover:bg-primary-700 text-white">
+                Get Free Consultation
+              </Button>
+            </Link> */}
+            <Link to="/GetConsultation">
+              <Button className="bg-primary-600 hover:bg-primary-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors duration-200">
+                Get Free Consultation
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

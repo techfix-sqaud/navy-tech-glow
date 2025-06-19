@@ -1,13 +1,13 @@
-import { useState, useEffect } from 'react';
-import { Menu, X, Moon, Sun, ChevronDown } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Link, useLocation } from 'react-router-dom';
+import { useState, useEffect } from "react";
+import { Menu, X, Moon, Sun, ChevronDown } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Link, useLocation } from "react-router-dom";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
+} from "@/components/ui/dropdown-menu";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -15,40 +15,40 @@ const Header = () => {
   const location = useLocation();
 
   useEffect(() => {
-    const isDarkMode = localStorage.getItem('darkMode') === 'true';
+    const isDarkMode = localStorage.getItem("darkMode") === "true";
     setIsDark(isDarkMode);
     if (isDarkMode) {
-      document.documentElement.classList.add('dark');
+      document.documentElement.classList.add("dark");
     }
   }, []);
 
   const toggleDarkMode = () => {
     const newDarkMode = !isDark;
     setIsDark(newDarkMode);
-    localStorage.setItem('darkMode', newDarkMode.toString());
+    localStorage.setItem("darkMode", newDarkMode.toString());
     if (newDarkMode) {
-      document.documentElement.classList.add('dark');
+      document.documentElement.classList.add("dark");
     } else {
-      document.documentElement.classList.remove('dark');
+      document.documentElement.classList.remove("dark");
     }
   };
 
   const serviceItems = [
-    { name: 'Smart Home', href: '/smart-home' },
-    { name: 'Networking', href: '/networking' },
-    { name: 'Web & Mobile Dev', href: '/web-mobile-dev' },
-    { name: 'Cybersecurity', href: '/cybersecurity' },
+    { name: "Smart Home", href: "/smart-home" },
+    { name: "Networking", href: "/networking" },
+    { name: "Web & Mobile Dev", href: "/web-mobile-dev" },
+    { name: "Cybersecurity", href: "/cybersecurity" },
   ];
 
   const isActive = (href: string) => {
-    if (href === '/') {
-      return location.pathname === '/';
+    if (href === "/") {
+      return location.pathname === "/";
     }
     return location.pathname === href;
   };
 
   const isServiceActive = () => {
-    return serviceItems.some(item => location.pathname === item.href);
+    return serviceItems.some((item) => location.pathname === item.href);
   };
 
   return (
@@ -69,31 +69,31 @@ const Header = () => {
             <Link
               to="/"
               className={`transition-colors duration-200 font-medium ${
-                isActive('/')
-                  ? 'text-primary-600 dark:text-primary-400'
-                  : 'text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400'
+                isActive("/")
+                  ? "text-primary-600 dark:text-primary-400"
+                  : "text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400"
               }`}
             >
               Home
             </Link>
-            
+
             {/* Services Dropdown */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button 
-                  variant="ghost" 
+                <Button
+                  variant="ghost"
                   className={`transition-colors duration-200 font-medium flex items-center space-x-1 ${
                     isServiceActive()
-                      ? 'text-primary-600 dark:text-primary-400'
-                      : 'text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400'
+                      ? "text-primary-600 dark:text-primary-400"
+                      : "text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400"
                   }`}
                 >
                   <span>Services</span>
                   <ChevronDown className="h-4 w-4" />
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent 
-                align="start" 
+              <DropdownMenuContent
+                align="start"
                 className="w-56 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-lg z-50"
               >
                 {serviceItems.map((item) => (
@@ -102,8 +102,8 @@ const Header = () => {
                       to={item.href}
                       className={`w-full px-3 py-2 transition-colors duration-200 ${
                         isActive(item.href)
-                          ? 'text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-primary-900/20'
-                          : 'text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-gray-50 dark:hover:bg-gray-700'
+                          ? "text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-primary-900/20"
+                          : "text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-gray-50 dark:hover:bg-gray-700"
                       }`}
                     >
                       {item.name}
@@ -116,9 +116,9 @@ const Header = () => {
             <Link
               to="/about"
               className={`transition-colors duration-200 font-medium ${
-                isActive('/about')
-                  ? 'text-primary-600 dark:text-primary-400'
-                  : 'text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400'
+                isActive("/about")
+                  ? "text-primary-600 dark:text-primary-400"
+                  : "text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400"
               }`}
             >
               About
@@ -127,9 +127,9 @@ const Header = () => {
             <Link
               to="/pricing"
               className={`transition-colors duration-200 font-medium ${
-                isActive('/pricing')
-                  ? 'text-primary-600 dark:text-primary-400'
-                  : 'text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400'
+                isActive("/pricing")
+                  ? "text-primary-600 dark:text-primary-400"
+                  : "text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400"
               }`}
             >
               Pricing
@@ -138,9 +138,9 @@ const Header = () => {
             <Link
               to="/contact"
               className={`transition-colors duration-200 font-medium ${
-                isActive('/contact')
-                  ? 'text-primary-600 dark:text-primary-400'
-                  : 'text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400'
+                isActive("/contact")
+                  ? "text-primary-600 dark:text-primary-400"
+                  : "text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400"
               }`}
             >
               Contact
@@ -155,9 +155,13 @@ const Header = () => {
               onClick={toggleDarkMode}
               className="text-gray-700 dark:text-gray-300"
             >
-              {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+              {isDark ? (
+                <Sun className="h-5 w-5" />
+              ) : (
+                <Moon className="h-5 w-5" />
+              )}
             </Button>
-            <Link to="/get-started">
+            <Link to="/GetStarted">
               <Button className="bg-primary-600 hover:bg-primary-700 text-white">
                 Get Started
               </Button>
@@ -172,7 +176,11 @@ const Header = () => {
               onClick={toggleDarkMode}
               className="text-gray-700 dark:text-gray-300"
             >
-              {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+              {isDark ? (
+                <Sun className="h-5 w-5" />
+              ) : (
+                <Moon className="h-5 w-5" />
+              )}
             </Button>
             <Button
               variant="ghost"
@@ -180,7 +188,11 @@ const Header = () => {
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="text-gray-700 dark:text-gray-300"
             >
-              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isMenuOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
             </Button>
           </div>
         </div>
@@ -192,26 +204,28 @@ const Header = () => {
               <Link
                 to="/"
                 className={`block px-3 py-2 transition-colors duration-200 ${
-                  isActive('/')
-                    ? 'text-primary-600 dark:text-primary-400'
-                    : 'text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400'
+                  isActive("/")
+                    ? "text-primary-600 dark:text-primary-400"
+                    : "text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400"
                 }`}
                 onClick={() => setIsMenuOpen(false)}
               >
                 Home
               </Link>
-              
+
               {/* Mobile Services */}
               <div className="px-3 py-2">
-                <span className="block text-sm font-medium text-gray-900 dark:text-gray-200 mb-2">Services</span>
+                <span className="block text-sm font-medium text-gray-900 dark:text-gray-200 mb-2">
+                  Services
+                </span>
                 {serviceItems.map((item) => (
                   <Link
                     key={item.name}
                     to={item.href}
                     className={`block px-3 py-2 text-sm transition-colors duration-200 ${
                       isActive(item.href)
-                        ? 'text-primary-600 dark:text-primary-400'
-                        : 'text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400'
+                        ? "text-primary-600 dark:text-primary-400"
+                        : "text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400"
                     }`}
                     onClick={() => setIsMenuOpen(false)}
                   >
@@ -223,9 +237,9 @@ const Header = () => {
               <Link
                 to="/about"
                 className={`block px-3 py-2 transition-colors duration-200 ${
-                  isActive('/about')
-                    ? 'text-primary-600 dark:text-primary-400'
-                    : 'text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400'
+                  isActive("/about")
+                    ? "text-primary-600 dark:text-primary-400"
+                    : "text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400"
                 }`}
                 onClick={() => setIsMenuOpen(false)}
               >
@@ -235,9 +249,9 @@ const Header = () => {
               <Link
                 to="/pricing"
                 className={`block px-3 py-2 transition-colors duration-200 ${
-                  isActive('/pricing')
-                    ? 'text-primary-600 dark:text-primary-400'
-                    : 'text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400'
+                  isActive("/pricing")
+                    ? "text-primary-600 dark:text-primary-400"
+                    : "text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400"
                 }`}
                 onClick={() => setIsMenuOpen(false)}
               >
@@ -247,17 +261,17 @@ const Header = () => {
               <Link
                 to="/contact"
                 className={`block px-3 py-2 transition-colors duration-200 ${
-                  isActive('/contact')
-                    ? 'text-primary-600 dark:text-primary-400'
-                    : 'text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400'
+                  isActive("/contact")
+                    ? "text-primary-600 dark:text-primary-400"
+                    : "text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400"
                 }`}
                 onClick={() => setIsMenuOpen(false)}
               >
                 Contact
               </Link>
-              
+
               <div className="px-3 py-2">
-                <Link to="/get-started">
+                <Link to="/GetStarted">
                   <Button className="w-full bg-primary-600 hover:bg-primary-700 text-white">
                     Get Started
                   </Button>
