@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Menu, X, Moon, Sun, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -158,9 +157,11 @@ const Header = () => {
             >
               {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
             </Button>
-            <Button className="bg-primary-600 hover:bg-primary-700 text-white">
-              Get Started
-            </Button>
+            <Link to="/get-started">
+              <Button className="bg-primary-600 hover:bg-primary-700 text-white">
+                Get Started
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -256,9 +257,11 @@ const Header = () => {
               </Link>
               
               <div className="px-3 py-2">
-                <Button className="w-full bg-primary-600 hover:bg-primary-700 text-white">
-                  Get Started
-                </Button>
+                <Link to="/get-started">
+                  <Button className="w-full bg-primary-600 hover:bg-primary-700 text-white">
+                    Get Started
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>

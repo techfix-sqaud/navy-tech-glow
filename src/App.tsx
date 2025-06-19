@@ -13,6 +13,9 @@ import Cybersecurity from "./pages/Cybersecurity";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Pricing from "./pages/Pricing";
+import GetStarted from "./pages/GetStarted";
+import Consultation from "./pages/Consultation";
+import StartProject from "./pages/StartProject";
 import NotFound from "./pages/NotFound";
 
 const App = () => {
