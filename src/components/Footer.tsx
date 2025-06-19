@@ -42,7 +42,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* Company Info */}
           <div className="lg:col-span-2">
-            <h3 className="text-2xl font-bold mb-4">TechFlow</h3>
+            <h3 className="text-2xl font-bold mb-4">Valstine</h3>
             <p className="text-gray-400 mb-6 leading-relaxed">
               Transforming businesses through innovative technology solutions. 
               We deliver cutting-edge services that drive digital transformation and growth.
@@ -52,7 +52,7 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-primary-400" />
-                <span className="text-gray-400">hello@techflow.com</span>
+                <span className="text-gray-400">hello@valstine.com</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="h-5 w-5 text-primary-400" />
@@ -122,7 +122,7 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             {/* Copyright */}
             <div className="text-gray-400 text-sm">
-              © 2024 TechFlow. All rights reserved.
+              © 2024 Valstine. All rights reserved.
             </div>
 
             {/* Social Links */}
