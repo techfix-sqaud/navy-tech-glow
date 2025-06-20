@@ -1,9 +1,10 @@
 
-import { Check, Star, Code, Shield, Network, Home, Smartphone, Cloud, Wrench, Video } from 'lucide-react';
+import { Check, Star, Code, Shield, Network, Home, Smartphone, Cloud, Wrench, Video, Sparkles, Zap } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
 import { Link } from 'react-router-dom';
 
 const Products = () => {
@@ -12,6 +13,8 @@ const Products = () => {
       icon: Code,
       name: 'ValstineCMS',
       category: 'Content Management',
+      status: 'Available Now',
+      statusColor: 'bg-green-100 text-green-700 border-green-200',
       description: 'Advanced content management system with AI-powered features and seamless integrations.',
       features: [
         'AI Content Generation',
@@ -32,6 +35,8 @@ const Products = () => {
       icon: Shield,
       name: 'SecureGuard Pro',
       category: 'Cybersecurity',
+      status: 'Coming This Fall',
+      statusColor: 'bg-orange-100 text-orange-700 border-orange-200',
       description: 'Enterprise-grade cybersecurity solution with real-time threat detection and prevention.',
       features: [
         'Real-time Threat Detection',
@@ -52,6 +57,8 @@ const Products = () => {
       icon: Network,
       name: 'NetworkFlow',
       category: 'Networking',
+      status: 'Coming Soon',
+      statusColor: 'bg-blue-100 text-blue-700 border-blue-200',
       description: 'Intelligent network management platform for optimizing performance and monitoring.',
       features: [
         'Network Monitoring',
@@ -72,6 +79,8 @@ const Products = () => {
       icon: Home,
       name: 'SmartHome Hub',
       category: 'IoT & Automation',
+      status: 'Beta Available',
+      statusColor: 'bg-purple-100 text-purple-700 border-purple-200',
       description: 'Complete smart home automation platform with AI-driven intelligence and energy optimization.',
       features: [
         'Device Integration',
@@ -92,6 +101,8 @@ const Products = () => {
       icon: Smartphone,
       name: 'MobileFirst SDK',
       category: 'Mobile Development',
+      status: 'Available Now',
+      statusColor: 'bg-green-100 text-green-700 border-green-200',
       description: 'Comprehensive mobile development SDK with cross-platform capabilities and advanced features.',
       features: [
         'Cross-platform Support',
@@ -112,6 +123,8 @@ const Products = () => {
       icon: Cloud,
       name: 'CloudScale Platform',
       category: 'Cloud Infrastructure',
+      status: 'Coming This Winter',
+      statusColor: 'bg-cyan-100 text-cyan-700 border-cyan-200',
       description: 'Scalable cloud platform with auto-scaling, monitoring, and deployment automation.',
       features: [
         'Auto-scaling',
@@ -132,6 +145,8 @@ const Products = () => {
       icon: Wrench,
       name: 'InstantApp',
       category: 'Mobile Application',
+      status: 'Available Now',
+      statusColor: 'bg-green-100 text-green-700 border-green-200',
       description: 'The ultimate handyman app connecting skilled professionals with customers for instant home services.',
       features: [
         'Real-time Booking',
@@ -156,6 +171,8 @@ const Products = () => {
       icon: Video,
       name: 'FaliStream',
       category: 'Web Application',
+      status: 'Live & Running',
+      statusColor: 'bg-emerald-100 text-emerald-700 border-emerald-200',
       description: 'Professional video converter and downloader platform for all your media conversion needs.',
       features: [
         'Multi-format Support',
@@ -179,16 +196,72 @@ const Products = () => {
     <div className="min-h-screen">
       <Header />
       
-      {/* Hero Section */}
-      <section className="pt-20 pb-16 hero-gradient">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Enhanced Hero Section */}
+      <section className="pt-20 pb-20 relative overflow-hidden">
+        {/* Animated Background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary-900 via-primary-700 to-primary-500">
+          <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.05"%3E%3Ccircle cx="30" cy="30" r="1"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] animate-pulse"></div>
+        </div>
+        
+        {/* Floating Elements */}
+        <div className="absolute top-20 left-10 animate-bounce">
+          <div className="w-12 h-12 bg-white/10 rounded-xl backdrop-blur-sm flex items-center justify-center">
+            <Code className="h-6 w-6 text-white" />
+          </div>
+        </div>
+        <div className="absolute top-32 right-16 animate-bounce" style={{ animationDelay: '1s' }}>
+          <div className="w-10 h-10 bg-white/10 rounded-full backdrop-blur-sm flex items-center justify-center">
+            <Sparkles className="h-5 w-5 text-white" />
+          </div>
+        </div>
+        <div className="absolute bottom-20 left-20 animate-bounce" style={{ animationDelay: '2s' }}>
+          <div className="w-8 h-8 bg-white/10 rounded-lg backdrop-blur-sm flex items-center justify-center">
+            <Zap className="h-4 w-4 text-white" />
+          </div>
+        </div>
+        
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center text-white animate-fade-in">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
-              Our Software Products
+            {/* Subtitle */}
+            <div className="flex items-center justify-center mb-4">
+              <div className="h-px bg-white/30 w-12"></div>
+              <span className="mx-4 text-sm font-medium tracking-wider uppercase opacity-90">
+                Innovation at Your Fingertips
+              </span>
+              <div className="h-px bg-white/30 w-12"></div>
+            </div>
+            
+            {/* Main Title */}
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+              Our Software
+              <span className="block bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">
+                Products
+              </span>
             </h1>
-            <p className="text-xl sm:text-2xl mb-8 max-w-3xl mx-auto opacity-90">
+            
+            {/* Description */}
+            <p className="text-xl sm:text-2xl mb-12 max-w-4xl mx-auto opacity-90 leading-relaxed">
               Cutting-edge software solutions designed to accelerate your digital transformation
+              <span className="block mt-2 text-lg opacity-75">
+                From enterprise applications to consumer-focused platforms
+              </span>
             </p>
+            
+            {/* Stats or Features */}
+            <div className="flex flex-wrap justify-center gap-8 mb-8">
+              <div className="text-center">
+                <div className="text-3xl font-bold">8+</div>
+                <div className="text-sm opacity-75">Products</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold">24/7</div>
+                <div className="text-sm opacity-75">Support</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold">99.9%</div>
+                <div className="text-sm opacity-75">Uptime</div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -203,15 +276,19 @@ const Products = () => {
                 <div key={index} className="animate-fade-in" style={{ animationDelay: `${index * 200}ms` }}>
                   {/* Product Header */}
                   <div className="text-center mb-12">
-                    <div className="mx-auto w-20 h-20 bg-gradient-to-br from-primary-500 to-primary-700 rounded-2xl flex items-center justify-center mb-6">
+                    <div className="mx-auto w-20 h-20 bg-gradient-to-br from-primary-500 to-primary-700 rounded-2xl flex items-center justify-center mb-6 shadow-lg">
                       <IconComponent className="h-10 w-10 text-white" />
                     </div>
                     <span className="inline-block px-3 py-1 bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-400 rounded-full text-sm font-medium mb-4">
                       {product.category}
                     </span>
-                    <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                    <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-3">
                       {product.name}
                     </h2>
+                    {/* Status Badge */}
+                    <Badge className={`${product.statusColor} font-medium mb-4`}>
+                      {product.status}
+                    </Badge>
                     <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
                       {product.description}
                     </p>
@@ -220,7 +297,7 @@ const Products = () => {
                   {/* Features and Pricing Grid */}
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-7xl mx-auto">
                     {/* Features */}
-                    <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg">
+                    <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg border border-gray-100 dark:border-gray-700">
                       <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Key Features</h3>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         {product.features.map((feature, featureIndex) => (
@@ -239,7 +316,7 @@ const Products = () => {
                         {product.pricing.map((plan, planIndex) => (
                           <Card 
                             key={planIndex} 
-                            className={`relative ${plan.popular ? 'border-primary-500 bg-primary-50 dark:bg-primary-900/20' : ''}`}
+                            className={`relative border transition-all hover:shadow-md ${plan.popular ? 'border-primary-500 bg-primary-50 dark:bg-primary-900/20' : 'border-gray-200 dark:border-gray-700'}`}
                           >
                             {plan.popular && (
                               <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
@@ -331,7 +408,7 @@ const Products = () => {
       {/* CTA Section */}
       <section className="py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gradient-to-r from-primary-600 to-primary-700 rounded-2xl p-12 text-center text-white">
+          <div className="bg-gradient-to-r from-primary-600 to-primary-700 rounded-2xl p-12 text-center text-white shadow-2xl">
             <h2 className="text-3xl sm:text-4xl font-bold mb-4">
               Ready to Transform Your Business?
             </h2>
