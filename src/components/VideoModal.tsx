@@ -1,8 +1,12 @@
-
-import { useState } from 'react';
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
-import { Button } from '@/components/ui/button';
-import { Play, X } from 'lucide-react';
+import { useState } from "react";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
+import { Play, X } from "lucide-react";
 
 interface VideoModalProps {
   isOpen: boolean;
@@ -11,12 +15,16 @@ interface VideoModalProps {
   title?: string;
 }
 
-const VideoModal = ({ 
-  isOpen, 
-  onClose, 
-  videoUrl = "https://www.youtube.com/embed/dQw4w9WgXcQ", 
-  title = "Product Demo" 
+const VideoModal = ({
+  isOpen,
+  onClose,
+  videoUrl = "https://www.youtube.com/embed/dQw4w9WgXcQ",
+  title = "Product Demo",
 }: VideoModalProps) => {
+  // Check if the video is a local file or external URL
+  const isLocalVideo =
+    videoUrl && !videoUrl.startsWith("http") && !videoUrl.includes("embed");
+
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="max-w-4xl w-full p-0 overflow-hidden">
@@ -36,21 +44,35 @@ const VideoModal = ({
             </Button>
           </DialogTitle>
         </DialogHeader>
-        
+
         <div className="aspect-video w-full">
-          <iframe
-            src={videoUrl}
-            title={title}
-            className="w-full h-full"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          />
+          {isLocalVideo ? (
+            <video
+              src={videoUrl}
+              title={title}
+              className="w-full h-full object-cover"
+              controls
+              autoPlay
+              muted
+            >
+              Your browser does not support the video tag.
+            </video>
+          ) : (
+            <iframe
+              src={videoUrl}
+              title={title}
+              className="w-full h-full"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          )}
         </div>
-        
+
         <div className="p-6 pt-4">
           <p className="text-sm text-gray-600 dark:text-gray-400">
-            See how our solutions can transform your business with cutting-edge technology.
+            See how our solutions can transform your business with cutting-edge
+            technology.
           </p>
         </div>
       </DialogContent>

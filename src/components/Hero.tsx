@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import VideoModal from "./VideoModal";
+import valstine from "@/assets/videos/valstine.mp4"; // Adjust the path as necessary
 
 const Hero = () => {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
@@ -100,8 +101,8 @@ const Hero = () => {
       <VideoModal
         isOpen={isVideoModalOpen}
         onClose={() => setIsVideoModalOpen(false)}
-        title="TechFlow Solutions Demo"
-        videoUrl="https://www.youtube.com/embed/dQw4w9WgXcQ"
+        title="Valstine Demo"
+        videoUrl={valstine}
       />
     </section>
   );
