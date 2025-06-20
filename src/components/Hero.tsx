@@ -1,8 +1,12 @@
 import { ArrowRight, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import VideoModal from "./VideoModal";
 
 const Hero = () => {
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
+
   return (
     <section
       id="home"
@@ -56,6 +60,7 @@ const Hero = () => {
               variant="outline"
               size="lg"
               className="border-white text-white hover:bg-white/10 px-8 py-4 text-lg font-semibold group"
+              onClick={() => setIsVideoModalOpen(true)}
             >
               <Play className="mr-2 h-5 w-5" />
               Watch Demo
@@ -91,6 +96,13 @@ const Hero = () => {
           <div className="w-1 h-3 bg-white/70 rounded-full mt-2"></div>
         </div>
       </div>
+
+      <VideoModal
+        isOpen={isVideoModalOpen}
+        onClose={() => setIsVideoModalOpen(false)}
+        title="TechFlow Solutions Demo"
+        videoUrl="https://www.youtube.com/embed/dQw4w9WgXcQ"
+      />
     </section>
   );
 };

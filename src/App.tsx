@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -15,6 +16,7 @@ import Pricing from "./pages/Pricing";
 import GetStarted from "./pages/GetStarted";
 import Consultation from "./pages/Consultation";
 import StartProject from "./pages/StartProject";
+import AdminDashboard from "./pages/AdminDashboard";
 import NotFound from "./pages/NotFound";
 
 const App = () => {
@@ -38,6 +40,7 @@ const App = () => {
             <Route path="/GetStarted" element={<GetStarted />} />
             <Route path="/GetConsultation" element={<Consultation />} />
             <Route path="/StartProject" element={<StartProject />} />
+            <Route path="/admin" element={<AdminDashboard />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
