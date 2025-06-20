@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Menu, X, Moon, Sun, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -112,6 +113,17 @@ const Header = () => {
                 ))}
               </DropdownMenuContent>
             </DropdownMenu>
+
+            <Link
+              to="/products"
+              className={`transition-colors duration-200 font-medium ${
+                isActive("/products")
+                  ? "text-primary-600 dark:text-primary-400"
+                  : "text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400"
+              }`}
+            >
+              Products
+            </Link>
 
             <Link
               to="/about"
@@ -233,6 +245,18 @@ const Header = () => {
                   </Link>
                 ))}
               </div>
+
+              <Link
+                to="/products"
+                className={`block px-3 py-2 transition-colors duration-200 ${
+                  isActive("/products")
+                    ? "text-primary-600 dark:text-primary-400"
+                    : "text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400"
+                }`}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Products
+              </Link>
 
               <Link
                 to="/about"

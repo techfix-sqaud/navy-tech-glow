@@ -13,6 +13,7 @@ import Cybersecurity from "./pages/Cybersecurity";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Pricing from "./pages/Pricing";
+import Products from "./pages/Products";
 import GetStarted from "./pages/GetStarted";
 import Consultation from "./pages/Consultation";
 import StartProject from "./pages/StartProject";
@@ -34,6 +35,7 @@ const App = () => {
             <Route path="/networking" element={<Networking />} />
             <Route path="/web-mobile-dev" element={<WebMobileDev />} />
             <Route path="/cybersecurity" element={<Cybersecurity />} />
+            <Route path="/products" element={<Products />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/pricing" element={<Pricing />} />
