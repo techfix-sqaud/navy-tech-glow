@@ -1,5 +1,5 @@
 
-import { Check, Star, Code, Shield, Network, Home, Smartphone, Cloud } from 'lucide-react';
+import { Check, Star, Code, Shield, Network, Home, Smartphone, Cloud, Wrench, Video } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -25,7 +25,8 @@ const Products = () => {
         { plan: 'Starter', price: '$49', period: 'month', popular: false },
         { plan: 'Professional', price: '$149', period: 'month', popular: true },
         { plan: 'Enterprise', price: 'Custom', period: 'pricing', popular: false }
-      ]
+      ],
+      type: 'software'
     },
     {
       icon: Shield,
@@ -44,7 +45,8 @@ const Products = () => {
         { plan: 'Basic', price: '$99', period: 'month', popular: false },
         { plan: 'Professional', price: '$299', period: 'month', popular: true },
         { plan: 'Enterprise', price: 'Custom', period: 'pricing', popular: false }
-      ]
+      ],
+      type: 'software'
     },
     {
       icon: Network,
@@ -63,7 +65,8 @@ const Products = () => {
         { plan: 'Standard', price: '$79', period: 'month', popular: false },
         { plan: 'Advanced', price: '$199', period: 'month', popular: true },
         { plan: 'Enterprise', price: 'Custom', period: 'pricing', popular: false }
-      ]
+      ],
+      type: 'software'
     },
     {
       icon: Home,
@@ -82,7 +85,8 @@ const Products = () => {
         { plan: 'Home', price: '$39', period: 'month', popular: false },
         { plan: 'Pro', price: '$89', period: 'month', popular: true },
         { plan: 'Business', price: '$199', period: 'month', popular: false }
-      ]
+      ],
+      type: 'software'
     },
     {
       icon: Smartphone,
@@ -101,7 +105,8 @@ const Products = () => {
         { plan: 'Developer', price: '$29', period: 'month', popular: false },
         { plan: 'Team', price: '$99', period: 'month', popular: true },
         { plan: 'Enterprise', price: '$299', period: 'month', popular: false }
-      ]
+      ],
+      type: 'software'
     },
     {
       icon: Cloud,
@@ -120,7 +125,53 @@ const Products = () => {
         { plan: 'Startup', price: '$59', period: 'month', popular: false },
         { plan: 'Growth', price: '$199', period: 'month', popular: true },
         { plan: 'Scale', price: '$499', period: 'month', popular: false }
-      ]
+      ],
+      type: 'software'
+    },
+    {
+      icon: Wrench,
+      name: 'InstantApp',
+      category: 'Mobile Application',
+      description: 'The ultimate handyman app connecting skilled professionals with customers for instant home services.',
+      features: [
+        'Real-time Booking',
+        'GPS Tracking',
+        'Secure Payments',
+        'Rating & Reviews',
+        'Multi-service Support',
+        'Emergency Services'
+      ],
+      pricing: [
+        { plan: 'Free', price: 'Free', period: 'download', popular: false },
+        { plan: 'Pro Handyman', price: '$19.99', period: 'month', popular: true },
+        { plan: 'Business', price: '$49.99', period: 'month', popular: false }
+      ],
+      type: 'mobile-app',
+      appStores: {
+        ios: '#',
+        android: '#'
+      }
+    },
+    {
+      icon: Video,
+      name: 'FaliStream',
+      category: 'Web Application',
+      description: 'Professional video converter and downloader platform for all your media conversion needs.',
+      features: [
+        'Multi-format Support',
+        'High-quality Conversion',
+        'Batch Processing',
+        'Cloud Storage',
+        'Fast Downloads',
+        'No Registration Required'
+      ],
+      pricing: [
+        { plan: 'Free', price: 'Free', period: 'forever', popular: false },
+        { plan: 'Premium', price: '$9.99', period: 'month', popular: true },
+        { plan: 'Pro', price: '$19.99', period: 'month', popular: false }
+      ],
+      type: 'web-app',
+      websiteUrl: 'https://www.falistream.com'
     }
   ];
 
@@ -213,12 +264,60 @@ const Products = () => {
                           </Card>
                         ))}
                       </div>
-                      <div className="text-center">
-                        <Link to="/StartProject">
-                          <Button className="bg-primary-600 hover:bg-primary-700 text-white px-8 py-3">
-                            Get Started with {product.name}
-                          </Button>
-                        </Link>
+                      
+                      {/* Action Buttons */}
+                      <div className="text-center space-y-4">
+                        {product.type === 'mobile-app' && product.appStores && (
+                          <div className="space-y-3">
+                            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                              <Button 
+                                className="bg-black hover:bg-gray-800 text-white px-6 py-3 flex items-center justify-center"
+                                onClick={() => window.open(product.appStores.ios, '_blank')}
+                              >
+                                <span className="mr-2">📱</span>
+                                Download on App Store
+                              </Button>
+                              <Button 
+                                className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 flex items-center justify-center"
+                                onClick={() => window.open(product.appStores.android, '_blank')}
+                              >
+                                <span className="mr-2">🤖</span>
+                                Get it on Google Play
+                              </Button>
+                            </div>
+                            <Link to="/StartProject">
+                              <Button variant="outline" className="border-primary-600 text-primary-600 hover:bg-primary-50">
+                                Get Started with {product.name}
+                              </Button>
+                            </Link>
+                          </div>
+                        )}
+                        
+                        {product.type === 'web-app' && product.websiteUrl && (
+                          <div className="space-y-3">
+                            <Button 
+                              className="bg-primary-600 hover:bg-primary-700 text-white px-8 py-3"
+                              onClick={() => window.open(product.websiteUrl, '_blank')}
+                            >
+                              Visit {product.name}
+                            </Button>
+                            <div className="block">
+                              <Link to="/StartProject">
+                                <Button variant="outline" className="border-primary-600 text-primary-600 hover:bg-primary-50">
+                                  Get Started with {product.name}
+                                </Button>
+                              </Link>
+                            </div>
+                          </div>
+                        )}
+                        
+                        {product.type === 'software' && (
+                          <Link to="/StartProject">
+                            <Button className="bg-primary-600 hover:bg-primary-700 text-white px-8 py-3">
+                              Get Started with {product.name}
+                            </Button>
+                          </Link>
+                        )}
                       </div>
                     </div>
                   </div>
