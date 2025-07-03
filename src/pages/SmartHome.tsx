@@ -1,4 +1,5 @@
-import { Home, Wifi, Shield, Smartphone, Thermometer, Camera, Lock, Lightbulb, Check } from 'lucide-react';
+
+import { Home, Wifi, Shield, Smartphone, Thermometer, Camera, Lock, Lightbulb, Check, Code, Sparkles, Zap } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -79,17 +80,74 @@ const SmartHome = () => {
     <div className="min-h-screen">
       <Header />
       
-      {/* Hero Section */}
-      <section className="pt-20 pb-16 hero-gradient">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Enhanced Hero Section */}
+      <section className="pt-20 pb-20 relative overflow-hidden">
+        {/* Animated Background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary-900 via-primary-700 to-primary-500">
+          <div className="absolute inset-0 bg-[url('data:image/svg+xml;charset=utf8,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%2523ffffff%22%20fill-opacity%3D%220.05%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%221%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E')] animate-pulse"></div>
+        </div>
+        
+        {/* Floating Elements */}
+        <div className="absolute top-20 left-10 animate-bounce">
+          <div className="w-12 h-12 bg-white/10 rounded-xl backdrop-blur-sm flex items-center justify-center">
+            <Home className="h-6 w-6 text-white" />
+          </div>
+        </div>
+        <div className="absolute top-32 right-16 animate-bounce" style={{ animationDelay: '1s' }}>
+          <div className="w-10 h-10 bg-white/10 rounded-full backdrop-blur-sm flex items-center justify-center">
+            <Sparkles className="h-5 w-5 text-white" />
+          </div>
+        </div>
+        <div className="absolute bottom-20 left-20 animate-bounce" style={{ animationDelay: '2s' }}>
+          <div className="w-8 h-8 bg-white/10 rounded-lg backdrop-blur-sm flex items-center justify-center">
+            <Zap className="h-4 w-4 text-white" />
+          </div>
+        </div>
+        
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center text-white animate-fade-in">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
-              Smart Home Solutions
+            {/* Subtitle */}
+            <div className="flex items-center justify-center mb-4">
+              <div className="h-px bg-white/30 w-12"></div>
+              <span className="mx-4 text-sm font-medium tracking-wider uppercase opacity-90">
+                Intelligent Home Solutions
+              </span>
+              <div className="h-px bg-white/30 w-12"></div>
+            </div>
+            
+            {/* Main Title */}
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+              Smart Home
+              <span className="block bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">
+                Solutions
+              </span>
             </h1>
-            <p className="text-xl sm:text-2xl mb-8 max-w-3xl mx-auto opacity-90">
+            
+            {/* Description */}
+            <p className="text-xl sm:text-2xl mb-12 max-w-4xl mx-auto opacity-90 leading-relaxed">
               Transform your home into an intelligent, connected space with our cutting-edge automation systems
+              <span className="block mt-2 text-lg opacity-75">
+                Complete home automation with AI-powered intelligence
+              </span>
             </p>
-            <Button size="lg" className="bg-white text-primary-900 hover:bg-gray-100">
+            
+            {/* Stats or Features */}
+            <div className="flex flex-wrap justify-center gap-8 mb-8">
+              <div className="text-center">
+                <div className="text-3xl font-bold">200+</div>
+                <div className="text-sm opacity-75">Homes Automated</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold">30%</div>
+                <div className="text-sm opacity-75">Energy Savings</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold">24/7</div>
+                <div className="text-sm opacity-75">Monitoring</div>
+              </div>
+            </div>
+            
+            <Button size="lg" className="bg-white text-primary-900 hover:bg-gray-100 px-8 py-4 text-lg font-semibold">
               Get Free Consultation
             </Button>
           </div>
