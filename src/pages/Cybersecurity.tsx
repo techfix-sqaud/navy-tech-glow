@@ -101,7 +101,7 @@ const Cybersecurity = () => {
                 <div className="text-sm opacity-75">Monitoring</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold">< 5min</div>
+                <div className="text-3xl font-bold">5 Min</div>
                 <div className="text-sm opacity-75">Response Time</div>
               </div>
               <div className="text-center">
@@ -189,3 +189,4 @@ const Cybersecurity = () => {
 };
 
 export default Cybersecurity;
+

@@ -97,7 +97,7 @@ const Contact = () => {
                 <div className="text-sm opacity-75">Support Available</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold">< 1hr</div>
+                <div className="text-3xl font-bold">1 Hour</div>
                 <div className="text-sm opacity-75">Response Time</div>
               </div>
               <div className="text-center">
@@ -210,3 +210,4 @@ const Contact = () => {
 };
 
 export default Contact;
+
